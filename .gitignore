@@ -1,1 +1,4 @@
 .vs
+ManagersMocks/MainApp/bin
+ManagersMocks/MainApp/obj
+ManagersMocks/MainApp/obj/Debug
