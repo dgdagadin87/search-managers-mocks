@@ -13,10 +13,27 @@ namespace MainApp.Controllers
 {
     public class HomeController : Controller
     {
-        /*public IActionResult Index()
+        public JsonResult Common()
         {
-            return View();
-        }*/
+            dynamic result = new ExpandoObject();
+
+            result.success = true;
+            result.message = "";
+
+            result.data = new ExpandoObject();
+
+            result.success = true;
+            result.message = "";
+
+            result.data = new Manager
+            {
+                Id = 1,
+                Code = "Manager1",
+                Name = "Иванов Менеджеров"
+            };
+
+            return Json(result);
+        }
 
         public JsonResult Orders()
         {
@@ -96,6 +113,11 @@ namespace MainApp.Controllers
 
             return Json(result);
         }
+
+        /*public IActionResult Index()
+        {
+            return View();
+        }*/
 
         /*public IActionResult About()
         {

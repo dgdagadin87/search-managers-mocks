@@ -31,7 +31,18 @@ namespace MainApp
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll",
+                    builder =>
+                    {
+                        builder
+                        .AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+                        .AllowCredentials();
+                    });
+            });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
@@ -51,6 +62,8 @@ namespace MainApp
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+
+            app.UseCors("AllowAll");
 
             app.UseMvc(routes =>
             {
