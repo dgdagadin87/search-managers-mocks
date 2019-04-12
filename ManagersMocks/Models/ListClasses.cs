@@ -31,6 +31,7 @@
 
     public class Order
     {
+        public int Key { get; set; }
         public int Number { get; set; }
         public string ContractNumber { get; set; }
         public string CreateDate { get; set; }
